@@ -1,0 +1,9 @@
+{
+	"name": "adf-southridge-dev",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ab3d4eee-3fd1-4379-a42b-f20c9a3bf424",
+		"tenantId": "93f78fb4-ef1c-45ab-b816-766c3279943f"
+	}
+}
