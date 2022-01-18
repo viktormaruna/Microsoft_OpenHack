@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-southridge-dev"
+		},
+		"AzureDataLakeStorage_southridge_dev_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase_southridge_sales_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase_southridge_streaming_connectionString": {
+			"value": ""
+		},
+		"CosmosDb_southridge_movies_connectionString": {
+			"value": ""
+		},
+		"FileServer_fourcoffee_password": {
+			"value": ""
+		},
+		"SqlServer_VanArsdel_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_southridge_dev_properties_typeProperties_url": {
+			"value": "https://datalakeoh18012022.dfs.core.windows.net"
+		},
+		"FileServer_fourcoffee_properties_typeProperties_host": {
+			"value": "C:\\Rentals"
+		},
+		"FileServer_fourcoffee_properties_typeProperties_userId": {
+			"value": "southridge"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

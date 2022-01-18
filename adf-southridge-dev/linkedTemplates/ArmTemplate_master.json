@@ -1,0 +1,125 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-southridge-dev"
+		},
+		"AzureDataLakeStorage_southridge_dev_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage_southridge_dev'"
+		},
+		"AzureSqlDatabase_southridge_sales_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_southridge_sales'"
+		},
+		"AzureSqlDatabase_southridge_streaming_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_southridge_streaming'"
+		},
+		"CosmosDb_southridge_movies_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDb_southridge_movies'"
+		},
+		"FileServer_fourcoffee_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer_fourcoffee'"
+		},
+		"SqlServer_VanArsdel_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer_VanArsdel'"
+		},
+		"AzureDataLakeStorage_southridge_dev_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalakeoh18012022.dfs.core.windows.net"
+		},
+		"FileServer_fourcoffee_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Rentals"
+		},
+		"FileServer_fourcoffee_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "southridge"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-southridge-dev_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage_southridge_dev_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage_southridge_dev_accountKey')]"
+					},
+					"AzureSqlDatabase_southridge_sales_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_southridge_sales_connectionString')]"
+					},
+					"AzureSqlDatabase_southridge_streaming_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_southridge_streaming_connectionString')]"
+					},
+					"CosmosDb_southridge_movies_connectionString": {
+						"value": "[parameters('CosmosDb_southridge_movies_connectionString')]"
+					},
+					"FileServer_fourcoffee_password": {
+						"value": "[parameters('FileServer_fourcoffee_password')]"
+					},
+					"SqlServer_VanArsdel_connectionString": {
+						"value": "[parameters('SqlServer_VanArsdel_connectionString')]"
+					},
+					"AzureDataLakeStorage_southridge_dev_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage_southridge_dev_properties_typeProperties_url')]"
+					},
+					"FileServer_fourcoffee_properties_typeProperties_host": {
+						"value": "[parameters('FileServer_fourcoffee_properties_typeProperties_host')]"
+					},
+					"FileServer_fourcoffee_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer_fourcoffee_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adf-southridge-dev_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-southridge-dev_ArmTemplate_0')]"
+			]
+		}
+	]
+}
