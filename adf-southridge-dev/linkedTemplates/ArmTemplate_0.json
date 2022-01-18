@@ -53,6 +53,7 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"description": "aaa",
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
