@@ -1,0 +1,26 @@
+{
+	"name": "SourceDataset_7p6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer_FourCofee_Generic",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_fileName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": {
+					"value": "@dataset().cw_fileName",
+					"type": "Expression"
+				},
+				"folderPath": "Transactions_2018"
+			}
+		}
+	}
+}
