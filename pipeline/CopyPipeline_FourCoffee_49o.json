@@ -5,7 +5,14 @@
 			{
 				"name": "Copy_49o",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Stored procedure1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -80,7 +87,7 @@
 					"storedProcedureName": "[dbo].[MoveData]",
 					"storedProcedureParameters": {
 						"DateToMove": {
-							"value": "2018-01-01",
+							"value": "getdate()",
 							"type": "DateTime"
 						},
 						"SwitchIn": {
