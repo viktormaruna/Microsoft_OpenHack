@@ -88,7 +88,7 @@
 					"storedProcedureParameters": {
 						"DateToMove": {
 							"value": {
-								"value": "getFutureTime(0,'Day')",
+								"value": "@pipeline().TriggerTime",
 								"type": "Expression"
 							},
 							"type": "DateTime"
