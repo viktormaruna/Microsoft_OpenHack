@@ -87,7 +87,10 @@
 					"storedProcedureName": "[dbo].[MoveData]",
 					"storedProcedureParameters": {
 						"DateToMove": {
-							"value": "'2018-01-01'",
+							"value": {
+								"value": "getFutureTime(0,'Day')",
+								"type": "Expression"
+							},
 							"type": "DateTime"
 						},
 						"SwitchIn": {
