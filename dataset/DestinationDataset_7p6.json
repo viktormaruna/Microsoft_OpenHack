@@ -1,0 +1,18 @@
+{
+	"name": "DestinationDataset_7p6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_southridge_dev",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "FourthCoffeeVM/bronze/Transactions",
+				"fileSystem": "data"
+			}
+		}
+	}
+}

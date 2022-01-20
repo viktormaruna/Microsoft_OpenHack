@@ -1,0 +1,85 @@
+{
+	"name": "CopyPipeline_FourCofee_TransPerDay",
+	"properties": {
+		"description": "CopyPipeline_FourCofee_TransPerDay",
+		"activities": [
+			{
+				"name": "Copy_7p6",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "Transactions_2018/@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}-@{formatDateTime(pipeline().parameters.windowStart,'MM')}-@{formatDateTime(pipeline().parameters.windowStart,'dd')}.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "data/FourthCoffeeVM/bronze/Transactions/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "AzureDataLakeStorage_southridge_dev",
+								"type": "LinkedServiceReference"
+							},
+							"path": "data/log"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_7p6",
+						"type": "DatasetReference",
+						"parameters": {
+							"cw_fileName": "@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}-@{formatDateTime(pipeline().parameters.windowStart,'MM')}-@{formatDateTime(pipeline().parameters.windowStart,'dd')}.csv"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_7p6",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
