@@ -87,10 +87,7 @@
 					"storedProcedureName": "[dbo].[MoveData]",
 					"storedProcedureParameters": {
 						"DateToMove": {
-							"value": {
-								"value": "@pipeline().TriggerTime",
-								"type": "Expression"
-							},
+							"value": "'2018-01-01'",
 							"type": "DateTime"
 						},
 						"SwitchIn": {
