@@ -1,0 +1,18 @@
+{
+	"name": "FileServer_FourCofee_Generic",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "FileServer_FourCofee_Generic",
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\",
+			"userId": "southridge",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlOGM4OThhYS01OGIyLTQ2MGItYmNiMy05NWI3NDNlNDg4ZWEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntimeonpremise",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
